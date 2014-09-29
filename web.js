@@ -3,18 +3,29 @@ var express = require('express');
 var morgan = require('morgan');
 var app = express();
 
-/* At the top, with other redirect methods before other routes */
-app.get('*',function(req,res,next){
+var http = require('http');
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-  if(req.headers['x-forwarded-proto']!='https') {
+var forceSsl = function (req, res, next) {
 
-  	res.redirect('https://ancient-retreat-8481.herokuapp.com/'+req.url);
-  }
-  else {
+	if (req.headers['x-forwarded-proto'] !== 'https') {
 
-  	//next(); /* Continue to other routes if we're not redirecting */
-  }
-})
+		return res.redirect(['https://', req.get('Host'), req.url].join(''));
+	} 
+	else {
+
+		next();
+	}
+};
+
+app.configure(function () {
+
+    if (env === 'production') {
+        app.use(forceSsl);
+    }
+
+    // other configurations etc for express go here...
+}
 
 //app.use(express.logger('dev'));
 app.use(morgan('combined'));
