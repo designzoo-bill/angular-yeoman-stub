@@ -18,7 +18,7 @@ var forceSsl = function (req, res, next) {
 	}
 };
 
-app.configure(function () {
+app.handle(function () {
 
     if (env === 'production') {
 
@@ -29,4 +29,4 @@ app.configure(function () {
 	app.use(morgan('combined'));
 	app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 	app.listen(process.env.PORT || 5000);
-})
+});
