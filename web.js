@@ -3,9 +3,9 @@ var express = require('express');
 var morgan = require('morgan');
 var app = express();
 
-console.log("env: ", process.env.NODE_ENV);
+console.info("env: ", process.env.NODE_ENV);
 
-if (process.env.NODE_ENV === 'production') {
+/*if (process.env.NODE_ENV === 'production') {
 
 	is_secure = function (req) {req.headers['x-forwarded-proto'] === 'https';};
 }
@@ -28,9 +28,9 @@ var redirect_to_https = function(req, res, next) {
 	}
 };
 
-app.use(redirect_to_https);
+app.use(redirect_to_https);*/
 
 //app.use(express.logger('dev'));
 app.use(morgan('combined'));
 app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-//app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 5000);
