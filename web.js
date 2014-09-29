@@ -18,7 +18,7 @@ var redirect_to_https = function(req, res, next) {
 
   if (!is_secure(req)) {
 
-  	res.redirect("https://ancient-retreat-8481.herokuapp.com/" + req.url);
+  	res.redirect("http://ancient-retreat-8481.herokuapp.com/" + req.url);
   } 
   else {
 
