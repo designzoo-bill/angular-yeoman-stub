@@ -5,9 +5,9 @@ var app = express();
 
 console.log("env: ", process.env.NODE_ENV);
 
-/*if (process.env.NODE_ENV == 'production') {
+if (process.env.NODE_ENV === 'production') {
 
-	is_secure = function (req) {req.headers['x-forwarded-proto'] == 'https';};
+	is_secure = function (req) {req.headers['x-forwarded-proto'] === 'https';};
 }
   
 else {
@@ -20,7 +20,7 @@ var redirect_to_https = function(req, res, next) {
 
   if (!is_secure(req)) {
 
-  	res.redirect("http://ancient-retreat-8481.herokuapp.com/" + req.url);
+  	res.redirect("https://ancient-retreat-8481.herokuapp.com/" + req.url);
   } 
   else {
 
@@ -28,7 +28,7 @@ var redirect_to_https = function(req, res, next) {
   }
 };
 
-app.use(redirect_to_https);*/
+app.use(redirect_to_https);
 
 //app.use(express.logger('dev'));
 app.use(morgan('combined'));
