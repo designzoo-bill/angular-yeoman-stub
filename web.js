@@ -18,7 +18,7 @@ var forceSsl = function (req, res, next) {
 	}
 };
 
-app.configure(function () {
+app.use(function () {
 
     if (env === 'production') {
 
