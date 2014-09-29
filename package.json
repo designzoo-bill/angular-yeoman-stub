@@ -40,6 +40,6 @@
   },
   "scripts": {
     "test": "grunt test",
-    "start": "index.html"
+    "start": "node web.js"
   }
 }
