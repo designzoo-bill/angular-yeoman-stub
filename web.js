@@ -7,3 +7,12 @@ var app = express();
 app.use(morgan('combined'));
 app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 app.listen(process.env.PORT || 5000);
+
+app.get('*',function(req,res,next){
+
+  if(req.headers['x-forwarded-proto']!='https')
+
+    res.redirect('https://ancient-retreat-8481.herokuapp.com/'+req.url);
+  else
+    next(); /* Continue to other routes if we're not redirecting */
+})
