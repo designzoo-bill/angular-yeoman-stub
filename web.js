@@ -18,7 +18,7 @@ var redirect_to_https = function(req, res, next) {
 
   if (!is_secure(req)) {
 
-  	res.redirect "htts://google.com" + req.url;
+  	res.redirect("htts://google.com" + req.url);
   } 
   else {
 
