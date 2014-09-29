@@ -3,20 +3,30 @@ var express = require('express');
 var morgan = require('morgan');
 var app = express();
 
-if process.env.NODE_ENV == 'production'
-  is_secure = (req) ->
-    req.headers['x-forwarded-proto'] == 'https'
-else
-  is_secure = (req) -> req.secure
+if (process.env.NODE_ENV == 'production') {
 
-redirect_to_https = (req, res, next) ->
-  if not is_secure(req)
-    res.redirect "htts://google.com" + req.url
-  else
-    next()
+	is_secure = function (req) {req.headers['x-forwarded-proto'] == 'https';};
+}
+  
+else {
 
-app
-  .use(redirect_to_https)
+	is_secure = function (req){req.secure;};
+}
+  
+
+var redirect_to_https = function(req, res, next) {
+
+  if (not is_secure(req)) {
+
+  	res.redirect "htts://google.com" + req.url;
+  } 
+  else {
+
+  	next();
+  }
+};
+
+app.use(redirect_to_https);
 
 //app.use(express.logger('dev'));
 app.use(morgan('combined'));
