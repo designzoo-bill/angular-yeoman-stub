@@ -26,11 +26,11 @@ var redirect_to_https = function(req, res, next) {
 
   	next();
   }
+
+	app.use(morgan('combined'));
+	app.use(gzippo.staticGzip("" + __dirname + "/dist"));
+	app.listen(process.env.PORT || 5000);
+
 };
 
 app.use(redirect_to_https);
-
-//app.use(express.logger('dev'));
-app.use(morgan('combined'));
-app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-app.listen(process.env.PORT || 5000);
