@@ -28,4 +28,4 @@ app.configure(function () {
 	app.use(morgan('combined'));
 	app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 	app.listen(process.env.PORT || 5000);
-}
+};
