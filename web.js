@@ -24,10 +24,8 @@ app.configure(function () {
         app.use(forceSsl);
     }
 
-    // other configurations etc for express go here...
+	//app.use(express.logger('dev'));
+	app.use(morgan('combined'));
+	app.use(gzippo.staticGzip("" + __dirname + "/dist"));
+	app.listen(process.env.PORT || 5000);
 }
-
-//app.use(express.logger('dev'));
-app.use(morgan('combined'));
-app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-app.listen(process.env.PORT || 5000);
