@@ -9,28 +9,28 @@ if (process.env.NODE_ENV === 'production') {
 
 	is_secure = function (req) {req.headers['x-forwarded-proto'] === 'https';};
 }
-  
+
 else {
 
 	is_secure = function (req){req.secure;};
 }
-  
+
 
 var redirect_to_https = function(req, res, next) {
 
-  if (!is_secure(req)) {
+	if (!is_secure(req)) {
 
-  	res.redirect("https://ancient-retreat-8481.herokuapp.com/" + req.url);
-  } 
-  else {
+		res.redirect("https://ancient-retreat-8481.herokuapp.com/" + req.url);
+	} 
+	else {
 
-  	next();
-  }
-
-	app.use(morgan('combined'));
-	app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-	app.listen(process.env.PORT || 5000);
-
+		//next();
+	}
 };
 
 app.use(redirect_to_https);
+
+//app.use(express.logger('dev'));
+app.use(morgan('combined'));
+app.use(gzippo.staticGzip("" + __dirname + "/dist"));
+app.listen(process.env.PORT || 5000);
