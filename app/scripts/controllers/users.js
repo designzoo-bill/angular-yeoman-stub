@@ -16,4 +16,7 @@ angular.module('testApp')
     ];
 
     $scope.users = UserData;
+
+    // set the default order by
+    $scope.predicate = 'name.last';
   });
