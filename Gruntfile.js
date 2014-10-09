@@ -21,23 +21,8 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
-  grunt.registerTask('default', ['concat']);
-
   // Define the configuration for all the tasks
   grunt.initConfig({
-
-    // env stuff
-    env : process.env.NODE_ENV,
-    src: {
-      javascript: ['js/*.js'],
-      config: ['app/env/<%= env %>.js']
-    },
-    concat: {
-      javascript: {
-        src:['<%= src.config %>', '<%= src.javascript %>'],
-        dest:'app/env/config.js'
-      }
-    },
 
     // Project settings
     yeoman: appConfig,
