@@ -5,6 +5,12 @@ var app = express();
 
 console.info("env: ", process.env.NODE_ENV);
 
+// api call for client to get the env
+app.get('/nodeenv', function(req, res, next){
+	
+    return res.json({ env: app.get('env') });
+});
+
 /*if (process.env.NODE_ENV === 'production') {
 
 	is_secure = function (req) {req.headers['x-forwarded-proto'] === 'https';};
