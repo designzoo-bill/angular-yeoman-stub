@@ -10,6 +10,7 @@ angular.module('testApp').controller('UsersCtrl', function ($scope, UserData, $h
   // get the env
   $scope.env = 'local';
   $http.get('/nodeenv').success(function(data){
+  	console.log(data);
   	$scope.env = data.env;
   });
 });
