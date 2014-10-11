@@ -33,7 +33,7 @@
       <div ng-view=""></div>
 
       <div class="footer" ng-controller="LayoutCtrl">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team. env: {{env}}</p>
+        <p>env: {{env}}</p>
       </div>
     </div>
 
@@ -90,6 +90,9 @@
         <script src="scripts/env.js"></script>
         <script src="scripts/data/users.js"></script>
         <script src="scripts/controllers/layout.js"></script>
+        <script src="scripts/services/todostorage.js"></script>
+        <script src="scripts/directives/todoescape.js"></script>
+        <script src="scripts/directives/todofocus.js"></script>
         <!-- endbuild -->
 </body>
 </html>
