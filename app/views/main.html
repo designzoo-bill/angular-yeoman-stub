@@ -6,7 +6,7 @@
 	</form>
 </header>
 
-<section ng-show="todos.length" ng-cloak>
+<!-- <section ng-show="todos.length" ng-cloak>
 	<input id="toggle-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)">
 	<label for="toggle-all">Mark all as complete</label>
 	<ul id="todo-list">
@@ -21,9 +21,19 @@
 			</form>
 		</li>
 	</ul>
-</section>
+</section> -->
 
-<footer id="footer" ng-show="todos.length" ng-cloak>
+<ul class="list-group">
+	<li class="list-group-item" ng-repeat="todo in todos | orderBy:'orderBy':true" ng-class="todo.completed ? 'list-group-item-success' : ''">
+		{{todo.title}}
+		<div class="btn-group btn-group-xs pull-right">
+			<button ng-click="toggleTodo(todo)" type="button" class="btn btn-default">Mark as {{todo.completed ? 'in' : ''}}complete</button>
+			<button ng-click="removeTodo(todo)" type="button" class="btn btn-default">Delete</button>
+		</div>
+	</li>
+</ul>
+
+<!-- <footer id="footer" ng-show="todos.length" ng-cloak>
 	<span id="todo-count"><strong>{{remainingCount}}</strong>
 		<ng-pluralize count="remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
 	</span>
@@ -39,4 +49,4 @@
 		</li>
 	</ul>
 	<button id="clear-completed" ng-click="clearCompletedTodos()" ng-show="completedCount">Clear completed ({{completedCount}})</button>
-</footer>
+</footer> -->
