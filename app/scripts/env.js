@@ -1,7 +1,5 @@
 'use strict';
 
-//var myApp = angular.module('testApp', []);
-
 angular.module('testApp').factory('EnvVars', function($location){
 
 	var env, apiUrl;
