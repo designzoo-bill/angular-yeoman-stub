@@ -6,7 +6,6 @@
 
 <ul ui-sortable ng-model="todos" class="list-group">
 	<li class="list-group-item" ng-repeat="todo in todos" ng-class="todo.completed ? 'list-group-item-success' : ''">
-		<span class="glyphicon glyphicon-align-justify"></span>&nbsp;
 		{{todo.title}}
 		<div class="btn-group btn-group-xs pull-right">
 			<button ng-click="toggleTodo(todo)" type="button" class="btn btn-default">Mark as {{todo.completed ? 'in' : ''}}complete</button>
