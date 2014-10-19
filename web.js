@@ -12,7 +12,7 @@ app.get('/nodeenv', function(req, res, next){
 });
 
 // rewrite for html5 mode to work
-/*app.use('/js', express.static(__dirname + '/js'));
+app.use('/js', express.static(__dirname + '/js'));
 app.use('/dist', express.static(__dirname + '/../dist'));
 app.use('/css', express.static(__dirname + '/css'));
 app.use('/partials', express.static(__dirname + '/partials'));
@@ -20,7 +20,7 @@ app.use('/partials', express.static(__dirname + '/partials'));
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendfile('index.html', { root: __dirname });
-});*/
+});
 
 /*if (process.env.NODE_ENV === 'production') {
 
