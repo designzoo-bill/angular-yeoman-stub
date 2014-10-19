@@ -23,8 +23,6 @@ app.all('/*', function(req, res, next) {
     res.sendfile('index.html', { root: __dirname });
 });*/
 
-app.set('view engine', 'html');
-
 app.get('/bower_components/:name', function (req, res) {
   var name = req.params.name;
   res.render('bower_components/' + name);
@@ -50,13 +48,18 @@ app.get('/views/:name', function (req, res) {
   res.render('views/' + name);
 });
 
-app.get('/', function(req, res) {
+app.all('/*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendfile('index.html', { root: __dirname });
+});
+
+/*app.get('/', function(req, res) {
   res.render('index');
 });
 
 app.get('*', function(req, res) {
   res.redirect('/');
-});
+});*/
 
 //app.listen(3006); //the port you want to use
 
