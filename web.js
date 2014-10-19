@@ -12,7 +12,7 @@ app.get('/nodeenv', function(req, res, next){
 });
 
 // rewrite for html5 mode to work
-app.use('/scripts', express.static(__dirname + '/scripts'));
+/*app.use('/scripts', express.static(__dirname + '/scripts'));
 //app.use('/dist', express.static(__dirname + '/../dist'));
 app.use('/styles', express.static(__dirname + '/styles'));
 //app.use('/partials', express.static(__dirname + '/partials'));
@@ -21,6 +21,10 @@ app.all('/*', function(req, res, next) {
 
     // Just send the index.html for other files to support HTML5Mode
     res.sendfile('index.html', { root: __dirname });
+});*/
+
+app.use(function(req, res) {
+res.sendfile(path.join(__dirname, '..', 'client', 'app', 'index.html'));
 });
 
 //app.listen(3006); //the port you want to use
