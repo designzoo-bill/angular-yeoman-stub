@@ -40,7 +40,7 @@ app.get('/scripts/:name', function (req, res) {
 
 app.get('/styles/:name', function (req, res) {
   var name = req.params.name;
-  res.render('/dist/styles/' + name);
+  res.render('/styles/' + name);
 });
 
 app.get('/views/:name', function (req, res) {
