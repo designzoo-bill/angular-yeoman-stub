@@ -48,6 +48,10 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/instagram', {
+        templateUrl: 'views/instagram.html',
+        controller: 'InstagramCtrl'
+      })
       .otherwise({
         redirectTo: '/home'
       });

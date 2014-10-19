@@ -5,8 +5,8 @@
 </form>
 
 <ul ui-sortable ng-model="todos" class="list-group">
-	<li class="list-group-item" ng-repeat="todo in todos" ng-class="todo.completed ? 'list-group-item-success' : ''">
-		{{todo.title}}
+	<li class="list-group-item" ng-repeat="todo in todos track by $index" ng-class="todo.completed ? 'list-group-item-success' : ''">
+		<span ng-bind-html="todo.title | linky:'_blank'">{{todo.title}}</span>
 		<div class="btn-group btn-group-xs pull-right">
 			<button ng-click="toggleTodo(todo)" type="button" class="btn btn-default">Mark as {{todo.completed ? 'in' : ''}}complete</button>
 			<button ng-click="removeTodo(todo)" type="button" class="btn btn-default">Delete</button>
