@@ -15,11 +15,19 @@ app.get('/nodeenv', function(req, res, next){
 /*app.use('/scripts', express.static(__dirname + '/scripts'));
 app.use('/dist', express.static(__dirname + '/../dist'));
 app.use('/styles', express.static(__dirname + '/styles'));
-app.use('/partials', express.static(__dirname + '/partials'));*/
+app.use('/partials', express.static(__dirname + '/partials'));
 
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendfile('index.html', { root: __dirname });
+});*/
+
+app.get('/', function(req, res) {
+  res.render('index');
+});
+
+app.get('*', function(req, res) {
+  res.redirect('/');
 });
 
 /*if (process.env.NODE_ENV === 'production') {
