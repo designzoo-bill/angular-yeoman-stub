@@ -4,6 +4,7 @@ var morgan = require('morgan');
 var app = express();
 
 console.info("env: ", process.env.NODE_ENV);
+console.info("__dirname: ", __dirname);
 
 // api call for client to get the env
 app.get('/nodeenv', function(req, res, next){
@@ -50,8 +51,7 @@ app.get('views/:name', function (req, res) {
 
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
-    //res.sendfile('index.html', { root: __dirname });
-    res.redirect('dist/index.html');
+    res.sendfile('index.html', { root: __dirname });
 });
 
 /*app.get('/', function(req, res) {
