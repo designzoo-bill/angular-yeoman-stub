@@ -49,12 +49,12 @@ app.all('/*', function(req, res, next) {
 });*/
 
 app.get('/', function(req, res) {
-  res.render('index.html');
+  res.render('index');
 });
 
-app.get('*', function(req, res) {
-  res.redirect('/index.html');
-});
+/*app.get('*', function(req, res) {
+  res.redirect('/');
+});*/
 
 //app.listen(3006); //the port you want to use
 
