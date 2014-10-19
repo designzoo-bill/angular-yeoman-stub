@@ -23,30 +23,30 @@ app.all('/*', function(req, res, next) {
     res.sendfile('index.html', { root: __dirname });
 });*/
 
-/*app.get('/bower_components/:name', function (req, res) {
+app.get('/bower_components/:name', function (req, res) {
   var name = req.params.name;
   res.render('bower_components/' + name);
-});*/
+});
 
-/*app.get('/images/:name', function (req, res) {
+app.get('/images/:name', function (req, res) {
   var name = req.params.name;
   res.render('images/' + name);
-});*/
+});
 
-/*app.get('/scripts/:name', function (req, res) {
+app.get('/scripts/:name', function (req, res) {
   var name = req.params.name;
   res.render('scripts/' + name);
-});*/
+});
 
-/*app.get('/styles/:name', function (req, res) {
+app.get('/styles/:name', function (req, res) {
   var name = req.params.name;
   res.render('styles/' + name);
-});*/
+});
 
-/*app.get('/views/:name', function (req, res) {
+app.get('/views/:name', function (req, res) {
   var name = req.params.name;
   res.render('views/' + name);
-});*/
+});
 
 app.get('/', function(req, res) {
   res.render('index.html');
