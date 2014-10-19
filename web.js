@@ -53,7 +53,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('*', function(req, res) {
-  res.redirect('index');
+  res.redirect('/');
 });
 
 //app.listen(3006); //the port you want to use
