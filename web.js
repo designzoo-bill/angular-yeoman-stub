@@ -25,17 +25,17 @@ app.all('/*', function(req, res, next) {
 
 app.get('/bower_components/:name', function (req, res) {
   var name = req.params.name;
-  res.render('bower_components/' + name);
+  res.render('/bower_components/' + name);
 });
 
 app.get('/images/:name', function (req, res) {
   var name = req.params.name;
-  res.render('images/' + name);
+  res.render('/images/' + name);
 });
 
 app.get('/scripts/:name', function (req, res) {
   var name = req.params.name;
-  res.render('scripts/' + name);
+  res.render('/scripts/' + name);
 });
 
 app.get('/styles/:name', function (req, res) {
@@ -45,7 +45,7 @@ app.get('/styles/:name', function (req, res) {
 
 app.get('/views/:name', function (req, res) {
   var name = req.params.name;
-  res.render('views/' + name);
+  res.render('/views/' + name);
 });
 
 app.all('/*', function(req, res, next) {
