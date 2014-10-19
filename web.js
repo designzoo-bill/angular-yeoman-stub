@@ -33,10 +33,10 @@ app.get('/images/:name', function (req, res) {
   res.render('images/' + name);
 });
 
-app.get('/scripts/:name', function (req, res) {
+/*app.get('/scripts/:name', function (req, res) {
   var name = req.params.name;
   res.render('scripts/' + name);
-});
+});*/
 
 /*app.get('/styles/:name', function (req, res) {
   var name = req.params.name;
