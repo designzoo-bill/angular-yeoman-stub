@@ -12,9 +12,9 @@ app.get('/nodeenv', function(req, res, next){
 });
 
 // rewrite for html5 mode to work
-//app.use('/scripts', express.static(__dirname + '/scripts'));
-//app.use('/dist', express.static(__dirname + '/dist'));
-//app.use('/styles', express.static(__dirname + '/styles'));
+app.use('/scripts', express.static(__dirname + '/scripts'));
+app.use('/dist', express.static(__dirname + '/../dist'));
+app.use('/styles', express.static(__dirname + '/styles'));
 //app.use('/partials', express.static(__dirname + '/partials'));
 
 app.all('/*', function(req, res, next) {
