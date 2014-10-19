@@ -12,8 +12,6 @@ angular.module('testApp')
 
   	var accessToken;
   	var clientId = 'e12788f54eb54fa2b6c9b6646e7002be';
-  	var clientSecret = 'd13017e23a9e437cbb768424e40eee0c';
-  	var grantType = 'authorization_code';
   	var responseType = 'token';
   	var redirectUri = 'https://ancient-retreat-8481.herokuapp.com/#/instagram';
   	var accessTokenUrl = 'https://api.instagram.com/oauth/authorize/';
@@ -35,6 +33,6 @@ angular.module('testApp')
 
   	this.getAccessTokenUrl = function (){
 
-  		return accessTokenUrl+'?client_id='+clientId+'&client_secret='+clientSecret+'&grant_type='+grantType+'&redirect_uri='+redirectUri+'&response_type='+responseType;
+  		return accessTokenUrl+'?client_id='+clientId+'&redirect_uri='+redirectUri+'&response_type='+responseType;
   	};
   });
