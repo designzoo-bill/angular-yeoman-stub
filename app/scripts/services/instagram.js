@@ -13,7 +13,7 @@ angular.module('testApp')
   	var accessToken, user;
   	var clientId = '7e0855d5d0414cf5ab2d7232cf7792ea';
   	var responseType = 'token';
-  	var redirectUri = 'https://ancient-retreat-8481.herokuapp.com/#/instagram';
+  	var redirectUri = 'http://localhost:9000/instagram';
   	var accessTokenUrl = 'https://instagram.com/oauth/authorize/';
 
   	this.hasValidToken = function (){
@@ -23,7 +23,7 @@ angular.module('testApp')
 
   	this.setAccessTokenAndUser = function (params){
 
-  		accessToken = params.access_token;
+  		//accessToken = params.access_token;
   		user = params.user;
 
   		console.log('user: ', user);

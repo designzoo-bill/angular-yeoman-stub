@@ -18,7 +18,7 @@ angular
     'ngTouch',
     'ui.sortable'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/home', {
         templateUrl: 'views/main.html',
@@ -55,4 +55,5 @@ angular
       .otherwise({
         redirectTo: '/home'
       });
+      $locationProvider.html5Mode(true);
   });

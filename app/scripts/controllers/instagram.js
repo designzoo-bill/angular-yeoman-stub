@@ -8,7 +8,7 @@
  * Controller of the testApp
  */
 angular.module('testApp')
-	.controller('InstagramCtrl', function ($scope, Instagram, $routeParams) {
+	.controller('InstagramCtrl', function ($scope, Instagram, $location) {
 
 	    $scope.awesomeThings = [
 
@@ -25,8 +25,9 @@ angular.module('testApp')
 	    $scope.instagramUrl = Instagram.getAccessTokenUrl();
 	    
 	    // if there is a token in the url then set the access token
+	    console.log('$location: ', $location.hash());
 	    if (typeof $routeParams !== 'undefined') {
 
-	    	Instagram.setAccessTokenAndUser($routeParams);
+	    	Instagram.setAccessTokenAndUser($location);
 	    }
 	});
