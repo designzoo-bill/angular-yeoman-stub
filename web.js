@@ -48,18 +48,18 @@ app.get('views/:name', function (req, res) {
   res.render('views/' + name);
 });*/
 
-app.all('/*', function(req, res, next) {
+/*app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendfile('index.html', { root: __dirname });
-});
+});*/
 
 /*app.get('/', function(req, res) {
   res.render('index');
-});
+});*/
 
 app.get('*', function(req, res) {
   res.redirect('/');
-});*/
+});
 
 //app.listen(3006); //the port you want to use
 
