@@ -23,8 +23,17 @@ app.all('/*', function(req, res, next) {
     res.sendfile('index.html', { root: __dirname });
 });*/
 
-app.use(function(req, res) {
-res.sendfile(path.join(__dirname, '..', 'client', 'app', 'index.html'));
+app.get('/scripts/:name', function (req, res) {
+  var name = req.params.name;
+  res.render('scripts/' + name);
+});
+
+app.get('/', function(req, res) {
+  res.render('index');
+});
+
+app.get('*', function(req, res) {
+  res.redirect('/');
 });
 
 //app.listen(3006); //the port you want to use
