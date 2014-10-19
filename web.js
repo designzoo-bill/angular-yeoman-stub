@@ -38,10 +38,10 @@ app.get('/scripts/:name', function (req, res) {
   res.render('scripts/' + name);
 });
 
-app.get('/styles/:name', function (req, res) {
+/*app.get('/styles/:name', function (req, res) {
   var name = req.params.name;
   res.render('styles/' + name);
-});
+});*/
 
 /*app.get('/views/:name', function (req, res) {
   var name = req.params.name;
