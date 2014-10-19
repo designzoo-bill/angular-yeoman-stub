@@ -49,7 +49,7 @@ app.all('/*', function(req, res, next) {
 });*/
 
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index.html');
 });
 
 app.get('*', function(req, res) {
