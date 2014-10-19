@@ -52,9 +52,9 @@ app.get('/', function(req, res) {
   res.render('index.html');
 });
 
-/*app.get('*', function(req, res) {
+app.get('*', function(req, res) {
   res.redirect('/');
-});*/
+});
 
 //app.listen(3006); //the port you want to use
 
