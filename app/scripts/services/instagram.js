@@ -11,10 +11,10 @@ angular.module('testApp')
   .service('Instagram', function Instagram() {
 
   	var accessToken;
-  	var clientId = 'e12788f54eb54fa2b6c9b6646e7002be';
+  	var clientId = '7e0855d5d0414cf5ab2d7232cf7792ea';
   	var responseType = 'token';
   	var redirectUri = 'https://ancient-retreat-8481.herokuapp.com/#/instagram';
-  	var accessTokenUrl = 'https://api.instagram.com/oauth/authorize/';
+  	var accessTokenUrl = 'https://api.instagram.com/oauth/access_token/';
 
   	this.hasValidToken = function (){
 
@@ -33,6 +33,6 @@ angular.module('testApp')
 
   	this.getAccessTokenUrl = function (){
 
-  		return accessTokenUrl+'?client_id='+clientId+'&redirect_uri='+redirectUri+'&response_type='+responseType;
+  		return accessTokenUrl+'?client_id='+clientId+'&redirect_uri='+encodeURIComponent(redirectUri)+'&response_type='+responseType;
   	};
   });
