@@ -6,6 +6,8 @@ var app = express();
 console.info("env: ", process.env.NODE_ENV);
 console.info("__dirname: ", __dirname);
 
+var path = require('path');
+
 // api call for client to get the env
 app.get('/nodeenv', function(req, res, next){
 	
