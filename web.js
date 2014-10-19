@@ -28,10 +28,10 @@ app.get('/bower_components/:name', function (req, res) {
   res.render('bower_components/' + name);
 });
 
-app.get('/images/:name', function (req, res) {
+/*app.get('/images/:name', function (req, res) {
   var name = req.params.name;
   res.render('images/' + name);
-});
+});*/
 
 /*app.get('/scripts/:name', function (req, res) {
   var name = req.params.name;
