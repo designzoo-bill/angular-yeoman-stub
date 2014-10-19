@@ -51,7 +51,7 @@ app.get('views/:name', function (req, res) {
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     //res.sendfile('index.html', { root: __dirname });
-    res.redirect('/');
+    res.redirect('dist/index.html');
 });
 
 /*app.get('/', function(req, res) {
