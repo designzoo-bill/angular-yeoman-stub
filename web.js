@@ -23,11 +23,6 @@ app.all('/*', function(req, res, next) {
     res.sendfile('index.html', { root: __dirname });
 });*/
 
-app.all('/*', function(req, res, next) {
-    // Just send the index.html for other files to support HTML5Mode
-    res.sendfile('dist/index.html', { root: __dirname });
-});
-
 app.get('/bower_components/:name', function (req, res) {
   var name = req.params.name;
   res.render('bower_components/' + name);
@@ -45,7 +40,7 @@ app.get('/scripts/:name', function (req, res) {
 
 app.get('/styles/:name', function (req, res) {
   var name = req.params.name;
-  res.render('dist/styles/' + name);
+  res.render('/dist/styles/' + name);
 });
 
 app.get('/views/:name', function (req, res) {
@@ -53,7 +48,10 @@ app.get('/views/:name', function (req, res) {
   res.render('views/' + name);
 });
 
-
+app.all('/*', function(req, res, next) {
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendfile('dist/index.html', { root: __dirname });
+});
 
 /*app.get('/', function(req, res) {
   res.render('index');
