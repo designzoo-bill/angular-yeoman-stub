@@ -63,7 +63,7 @@ console.log('app.path(): ', app.path());
 });*/
 
 app.get('*', function(request, response, next) {
-  response.sendFile(__dirname + '/../dist/index.html');
+  response.sendFile(__dirname + '/dist/index.html');
 });
 
 /*app.get('/', function(req, res) {
@@ -103,5 +103,5 @@ app.use(redirect_to_https);*/
 
 //app.use(express.logger('dev'));
 app.use(morgan('combined'));
-//app.use(gzippo.staticGzip("" + __dirname + "/dist"));
+app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 app.listen(process.env.PORT || 5000);
