@@ -9,7 +9,7 @@ var routes = require('./routes');
 
 var path = require('path');
 
-app.use(app.router);
+//app.use(app.router);
 app.use(function(req, res) {
   // Use res.sendfile, as it streams instead of reading the file into memory.
   res.sendfile(__dirname + '/index.html');
