@@ -39,20 +39,18 @@ app.get('images/:name', function (req, res) {
 app.get('scripts/:name', function (req, res) {
   var name = req.params.name;
   res.render('scripts/' + name);
-});
+});*/
 
 app.get('styles/:name', function (req, res) {
   var name = req.params.name;
   res.render('styles/' + name);
 });
 
-app.get('views/:name', function (req, res) {
+/*app.get('views/:name', function (req, res) {
   var name = req.params.name;
   res.render('views/' + name);
-});*/
-
-console.log('app.path(): ', app.path());
-
+});
+*/
 /*app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', { root: __dirname+'../dist/'});
