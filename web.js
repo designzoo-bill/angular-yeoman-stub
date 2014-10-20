@@ -2,10 +2,6 @@ var gzippo = require('gzippo');
 var express = require('express');
 var morgan = require('morgan');
 var app = express();
-var routes = require('./routes');
-
-app.get('/', routes.index);
-app.get('*', routes.index);
 
 console.info("__dirname: ", __dirname);
 
@@ -62,6 +58,14 @@ app.get('scripts/:name', function (req, res) {
 /*app.configure(function() {
   app.use('/', express.static(__dirname + '/'));
 });*/
+
+app.get('/', function (req, res) {
+  res.render('index.html');
+});
+
+app.get('*', function (req, res) {
+  res.render('index.html');
+});
 
 app.get('/styles/:name', function (req, res) {
   var name = req.params.name;
