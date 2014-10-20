@@ -58,9 +58,9 @@ console.log('app.path(): ', app.path());
     res.sendFile('index.html', { root: __dirname+'../dist/'});
 });*/
 
-app.configure(function() {
+/*app.configure(function() {
   app.use('/', express.static(__dirname + '/'));
-});
+});*/
 
 app.get('*', function(request, response, next) {
   response.sendfile(__dirname + '/index.html');
