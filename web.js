@@ -4,10 +4,16 @@ var morgan = require('morgan');
 var app = express();
 var routes = require('./routes');
 
-app.get('/', routes.index);
-app.get('*', routes.index);
+//app.get('/', routes.index);
+//app.get('*', routes.index);
 
 var path = require('path');
+
+app.use(app.router);
+app.use(function(req, res) {
+  // Use res.sendfile, as it streams instead of reading the file into memory.
+  res.sendfile(__dirname + '/index.html');
+});
 
 // api call for client to get the env
 app.get('/node-env', function(req, res, next){
@@ -112,5 +118,5 @@ app.use(redirect_to_https);*/
 
 //app.use(express.logger('dev'));
 app.use(morgan('combined'));
-//app.use(gzippo.staticGzip("" + __dirname + "/dist"));
+app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 app.listen(process.env.PORT || 5000);
