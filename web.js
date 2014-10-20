@@ -41,10 +41,10 @@ app.get('scripts/:name', function (req, res) {
   res.render('scripts/' + name);
 });*/
 
-app.get('styles/:name', function (req, res) {
+/*app.get('styles/:name', function (req, res) {
   var name = req.params.name;
   res.render('styles/' + name);
-});
+});*/
 
 /*app.get('views/:name', function (req, res) {
   var name = req.params.name;
@@ -60,9 +60,9 @@ app.get('styles/:name', function (req, res) {
   app.use('/', express.static(__dirname + '/'));
 });*/
 
-app.get('*', function(request, response, next) {
+/*app.get('*', function(request, response, next) {
   response.sendFile(__dirname + '/dist/index.html');
-});
+});*/
 
 /*app.get('/', function(req, res) {
   res.render('index');
