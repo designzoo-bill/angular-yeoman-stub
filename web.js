@@ -12,7 +12,7 @@ var path = require('path');
 //app.use(app.router);
 app.use(function(req, res) {
   // Use res.sendfile, as it streams instead of reading the file into memory.
-  res.sendFile(__dirname + '/../dist/index.html');
+  res.sendFile('index.html', {root: __dirname});
 });
 
 // api call for client to get the env
