@@ -53,9 +53,17 @@ app.get('views/:name', function (req, res) {
 
 console.log('app.path(): ', app.path());
 
-app.all('/*', function(req, res, next) {
+/*app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', { root: __dirname+'../dist/'});
+});*/
+
+app.configure(function() {
+  app.use('/', express.static(__dirname + '/'));
+});
+
+app.get('*', function(request, response, next) {
+  response.sendfile(__dirname + '/index.html');
 });
 
 /*app.get('/', function(req, res) {
