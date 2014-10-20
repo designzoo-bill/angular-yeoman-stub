@@ -7,8 +7,6 @@ var routes = require('./routes');
 app.get('/', routes.index);
 app.get('*', routes.index);
 
-console.info("__dirname: ", __dirname);
-
 var path = require('path');
 
 // api call for client to get the env
