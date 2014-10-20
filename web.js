@@ -3,13 +3,12 @@ var express = require('express');
 var morgan = require('morgan');
 var app = express();
 
-console.info("env: ", process.env.NODE_ENV);
 console.info("__dirname: ", __dirname);
 
 var path = require('path');
 
 // api call for client to get the env
-app.get('/nodeenv', function(req, res, next){
+app.get('/node-env', function(req, res, next){
 	
     return res.json({ env: app.get('env') });
 });
@@ -59,6 +58,11 @@ app.get('scripts/:name', function (req, res) {
 /*app.configure(function() {
   app.use('/', express.static(__dirname + '/'));
 });*/
+
+app.get('/styles/:name', function (req, res) {
+  var name = req.params.name;
+  res.render('styles/' + name);
+});
 
 /*app.get('*', function(request, response, next) {
   response.sendFile(__dirname + '/dist/index.html');
