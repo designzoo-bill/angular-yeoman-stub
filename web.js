@@ -51,6 +51,8 @@ app.get('views/:name', function (req, res) {
   res.render('views/' + name);
 });*/
 
+console.log(app.path());
+
 app.all('/*', function(req, res, next) {
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', { root: __dirname+'../dist/'});
