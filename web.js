@@ -2,7 +2,7 @@ var gzippo = require('gzippo');
 var express = require('express');
 var morgan = require('morgan');
 var app = express();
-var routes = require('/app/routes');
+var routes = require('./routes');
 
 app.get('/', routes.index);
 app.get('*', routes.index);
