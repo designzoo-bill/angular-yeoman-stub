@@ -64,6 +64,11 @@ app.get('/styles/:name', function (req, res) {
   res.render('styles/' + name);
 });
 
+app.get('/views/:name', function (req, res) {
+  var name = req.params.name;
+  res.render('views/' + name);
+});
+
 /*app.get('*', function(request, response, next) {
   response.sendFile(__dirname + '/dist/index.html');
 });*/
