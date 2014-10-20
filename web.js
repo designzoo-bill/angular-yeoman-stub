@@ -60,11 +60,11 @@ app.get('scripts/:name', function (req, res) {
 });*/
 
 app.get('/', function (req, res) {
-  res.render('index.html');
+  res.render('index');
 });
 
 app.get('*', function (req, res) {
-  res.render('index.html');
+  res.render('index');
 });
 
 app.get('/styles/:name', function (req, res) {
