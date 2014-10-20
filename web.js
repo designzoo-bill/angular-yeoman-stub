@@ -7,10 +7,10 @@ var routes = require('./routes');
 //app.get('/', routes.index);
 //app.get('*', routes.index);
 
-var path = require('path');
+//var path = require('path');
 
 //app.use(app.router);
-app.use(function(req, res) {
+/*app.use(function(req, res) {
   // Use res.sendfile, as it streams instead of reading the file into memory.
   res.sendFile('index.html', {root: './'});
 });
@@ -19,7 +19,18 @@ app.use(function(req, res) {
 app.get('/node-env', function(req, res, next){
 	
     return res.json({ env: app.get('env') });
-});
+});*/
+
+/********
+ * Routes
+ ********/
+ 
+// serve index and view partials
+app.get('/', routes.index);
+app.get('/views/:name', routes.views);
+ 
+// redirect all others to the index (HTML5 history)
+app.get('*', routes.index);
 
 // rewrite for html5 mode to work
 /*app.use('/scripts', express.static(__dirname + '/scripts'));

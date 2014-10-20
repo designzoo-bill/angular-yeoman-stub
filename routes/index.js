@@ -1,4 +1,9 @@
-exports.index = function(req, res) {
-	console.log('test: ', __dirname);
-    res.sendFile("index.html", { root: '././dist/' });
+exports.index = function(req, res){
+
+  res.render('index');
+};
+ 
+exports.views = function (req, res) {
+  var name = req.params.name;
+  res.render('views/' + name);
 };
