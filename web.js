@@ -63,7 +63,7 @@ console.log('app.path(): ', app.path());
 });*/
 
 app.get('*', function(request, response, next) {
-  response.sendfile(__dirname + '/index.html');
+  response.sendfile(__dirname + '/../dist/index.html');
 });
 
 /*app.get('/', function(req, res) {
