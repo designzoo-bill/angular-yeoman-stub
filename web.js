@@ -12,6 +12,12 @@ app.all('/home', function(req, res, next) {
     res.sendfile('./dist/index.html');
 });
 
+app.all('/', function(req, res, next) {
+
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendfile('./dist/index.html');
+});
+
 app.get('styles/:name', function (req, res) {
   var name = req.params.name;
   res.render('./dist/styles/' + name);
