@@ -8,25 +8,44 @@
  * Service in the testApp.
  */
 angular.module('testApp')
-  .service('Instagram', function Instagram() {
+  .service('Instagram', function Instagram($http) {
 
-  	var accessToken, user;
+  	var accessToken;
   	var clientId = '7e0855d5d0414cf5ab2d7232cf7792ea';
   	var responseType = 'token';
-  	var redirectUri = 'http://ancient-retreat-8481.herokuapp.com/instagram/';
+  	var redirectUri = 'http://localhost:9000/instagram';
   	var accessTokenUrl = 'https://instagram.com/oauth/authorize/';
 
-  	this.hasValidToken = function (){
+    // endpoints
+    var url = 'https://api.instagram.com/v1';
+    var userEndpoint = url+'/users/';
 
-  		return true;
+  	this.getUser = function (){
+
+      if (typeof accessToken === 'undefined') {
+
+        return null;
+      }
+
+      $http.get(userEndpoint+'self?access_token='+accessToken).
+        success(function(data, status, headers, config) {
+
+          console.log('data: ', data);
+          console.log('status: ', status);
+          console.log('headers: ', headers);
+          console.log('config: ', config);
+        }).
+        error(function() {
+
+          return null;
+        });
   	};
 
-  	this.setAccessTokenAndUser = function (params){
+  	this.setAccessToken = function (token){
 
-  		//accessToken = params.access_token;
-  		user = params.user;
+  		accessToken = token;
 
-  		console.log('user: ', user);
+  		console.log('accessToken: ', accessToken);
   	};
 
   	this.getAccessToken = function (){
@@ -38,11 +57,5 @@ angular.module('testApp')
 
   		var url = accessTokenUrl+'?client_id='+clientId+'&redirect_uri='+encodeURIComponent(redirectUri)+'&response_type='+responseType;
   		return url;
-  	};
-
-
-  	this.getAccessToken = function (){
-
-  		return accessToken;
   	};  	
   });
