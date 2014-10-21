@@ -15,12 +15,14 @@ app.all('/home', function(req, res, next) {
 app.all('/', function(req, res, next) {
 
     // Just send the index.html for other files to support HTML5Mode
-    res.sendFile('/dist/index.html');
+    res.sendFile('index.html', {root: './dist/'});
 });
 
 app.get('/styles/:name', function (req, res) {
+
   var name = req.params.name;
-  res.render('./dist/styles/' + name);
+  //res.render('./dist/styles/' + name);
+  res.sendFile(name, {root: './dist/styles/'});
 });
 
 // Routes
