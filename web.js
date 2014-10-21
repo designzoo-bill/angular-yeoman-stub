@@ -129,7 +129,6 @@ var redirect_to_https = function(req, res, next) {
 
 app.use(redirect_to_https);*/
 
-//app.use(express.logger('dev'));
-app.use(morgan('combined'));
-app.use(gzippo.staticGzip("" + __dirname + "/app"));
+app.use(morgan('dev'));
+app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 app.listen(process.env.PORT || 5000);
