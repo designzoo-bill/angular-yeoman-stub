@@ -6,7 +6,7 @@ var app = express();
 
 //app.set('view engine', 'html');
 
-app.all('/*', function(req, res, next) {
+app.all('/home', function(req, res, next) {
 
     // Just send the index.html for other files to support HTML5Mode
     res.sendfile('./dist/index.html');
@@ -140,5 +140,5 @@ var redirect_to_https = function(req, res, next) {
 app.use(redirect_to_https);*/
 
 app.use(morgan('dev'));
-app.use(gzippo.staticGzip("" + __dirname + "/dist"));
+//app.use(gzippo.staticGzip("" + __dirname + "/dist"));
 app.listen(process.env.PORT || 5000);
