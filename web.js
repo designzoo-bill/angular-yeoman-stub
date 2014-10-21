@@ -18,7 +18,7 @@ app.all('/', function(req, res, next) {
     res.sendfile('./dist/index.html');
 });
 
-app.get('styles/:name', function (req, res) {
+app.get('/styles/:name', function (req, res) {
   var name = req.params.name;
   res.render('./dist/styles/' + name);
 });
