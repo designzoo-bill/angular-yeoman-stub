@@ -1,15 +1,22 @@
 var gzippo = require('gzippo');
 var express = require('express');
 var morgan = require('morgan');
-var routes = require('./routes');
+//var routes = require('./routes');
 var app = express();
 
-app.set('view engine', 'html');
+//app.set('view engine', 'html');
+
+app.all('/*', function(req, res, next) {
+
+    // Just send the index.html for other files to support HTML5Mode
+    res.sendfile('./dist/index.html');
+});
 
 // Routes
 
-app.get('/', routes.index);
-app.get('/home', routes.index);
+//app.get('/', routes.index);
+//app.get('/home', routes.index);
+
 //app.get('/partials/:name', routes.partials);
 
 /*app.engine('html', require('html').renderFile);
@@ -48,12 +55,6 @@ app.get('/node-env', function(req, res, next){
 //app.use('/dist', express.static(__dirname + '/../dist'));
 app.use('/styles', express.static(__dirname + '/styles'));
 //app.use('/partials', express.static(__dirname + '/partials'));
-
-app.all('/*', function(req, res, next) {
-
-    // Just send the index.html for other files to support HTML5Mode
-    res.sendfile('index.html', { root: __dirname });
-});*/
 
 /*app.get('bower_components/:name', function (req, res) {
   var name = req.params.name;
