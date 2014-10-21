@@ -2,7 +2,6 @@ var gzippo = require('gzippo');
 var express = require('express');
 var morgan = require('morgan');
 var app = express();
-var routes = require('./routes');
 
 /*app.engine('html', require('html').renderFile);
 app.set('view engine', 'html');*/
@@ -81,15 +80,15 @@ app.get('scripts/:name', function (req, res) {
   app.use('/', express.static(__dirname + '/'));
 });*/
 
-app.get('/styles/:name', function (req, res) {
+/*app.get('/styles/:name', function (req, res) {
   var name = req.params.name;
   res.render('styles/' + name);
-});
+});*/
 
-app.get('/views/:name', function (req, res) {
+/*app.get('/views/:name', function (req, res) {
   var name = req.params.name;
   res.render('views/' + name);
-});
+});*/
 
 /*app.get('*', function(request, response, next) {
   response.sendFile(__dirname + '/dist/index.html');
