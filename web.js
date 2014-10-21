@@ -21,8 +21,13 @@ app.all('/', function(req, res, next) {
 app.get('/styles/:name', function (req, res) {
 
   var name = req.params.name;
-  //res.render('./dist/styles/' + name);
   res.sendFile(name, {root: './dist/styles/'});
+});
+
+app.get('/scripts/:name', function (req, res) {
+
+  var name = req.params.name;
+  res.sendFile(name, {root: './dist/scripts/'});
 });
 
 // Routes
