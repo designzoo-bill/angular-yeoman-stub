@@ -10,7 +10,7 @@ app.get('/node-env', function(req, res, next){
     return res.json({ env: app.get('env') });
 });
 
-app.get('*', function(req, res, next) {
+app.get('/:name', function(req, res, next) {
 
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', {root: './dist/'});
