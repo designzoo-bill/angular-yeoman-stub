@@ -4,6 +4,8 @@ var morgan = require('morgan');
 var routes = require('./routes');
 var app = express();
 
+app.set('view engine', 'html');
+
 // Routes
 
 app.get('/', routes.index);
