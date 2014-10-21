@@ -4,9 +4,13 @@ var morgan = require('morgan');
 //var routes = require('./routes');
 var app = express();
 
-//app.set('view engine', 'html');
+// api call for client to get the env
+app.get('/node-env', function(req, res, next){
+  
+    return res.json({ env: app.get('env') });
+});
 
-app.all('*', function(req, res, next) {
+app.get('*', function(req, res, next) {
 
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', {root: './dist/'});
