@@ -30,6 +30,18 @@ app.get('/scripts/:name', function (req, res) {
   res.sendFile(name, {root: './dist/scripts/'});
 });
 
+app.get('/views/:name', function (req, res) {
+
+  var name = req.params.name;
+  res.sendFile(name, {root: './dist/views/'});
+});
+
+app.get('/images/:name', function (req, res) {
+
+  var name = req.params.name;
+  res.sendFile(name, {root: './dist/images/'});
+});
+
 // Routes
 
 //app.get('/', routes.index);
