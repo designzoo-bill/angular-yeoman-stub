@@ -4,8 +4,8 @@ var morgan = require('morgan');
 var app = express();
 var routes = require('./routes');
 
-app.engine('html', require('html').renderFile);
-app.set('view engine', 'html');
+/*app.engine('html', require('html').renderFile);
+app.set('view engine', 'html');*/
 
 //app.get('/', routes.index);
 //app.get('*', routes.index);
@@ -29,11 +29,11 @@ app.get('/node-env', function(req, res, next){
  ********/
  
 // serve index and view partials
-app.get('/', routes.index);
+//app.get('/', routes.index);
 //app.get('/views/:name', routes.views);
  
 // redirect all others to the index (HTML5 history)
-app.get('*', routes.index);
+//app.get('*', routes.index);
 
 // rewrite for html5 mode to work
 /*app.use('/scripts', express.static(__dirname + '/scripts'));
