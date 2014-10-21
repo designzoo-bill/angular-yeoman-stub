@@ -1,1 +1,16 @@
 <p ng-show="user == null">Please <a ng-href="{{instagramUrl}}">connect</a> with Instagram</p>
+<div ng-show="user">
+	<div ng-show="user.profile_picture" class="row">
+		<div class="col-xs-6 col-md-3">
+			<a href="#" class="thumbnail">
+				<img src="{{user.profile_picture}}">
+			</a>
+		</div>
+	</div>
+	<p>
+		<span ng-show="user.username">Username: {{user.username}}<br></span>
+		<span ng-show="user.bio">Bio: {{user.bio}}<br></span>
+		<span ng-show="user.website">Website: <span ng-bind-html="user.website | linky:'_blank'">{{user.website}}</span><br></span>
+		<span ng-show="user.full_name">Full Name: {{user.full_name}}<br></span>
+	</p>
+</div>

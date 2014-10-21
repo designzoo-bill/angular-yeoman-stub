@@ -29,7 +29,26 @@ angular.module('testApp')
 	    }
 
 	   	// have we got a valid instagram access_token
-	    $scope.user = Instagram.getUser();
+	    var getInstgramUser = function(){
 
-	    console.log('$scope.user: ', $scope.user);
+	    	Instagram.getUser().then(
+
+		    	// success
+		    	function(user){
+
+		    		$scope.user = user;
+		    		console.log('$scope.user: ', $scope.user);
+		    	},
+		    	// fail
+		    	function(){
+
+		    		$scope.user = null;
+		    		console.log('$scope.user: ', $scope.user);	    		
+		    	}
+	    	);
+	    };
+
+	    // update the user every second
+	    //$interval(getInstgramUser, 1000);
+	    getInstgramUser();
 	});

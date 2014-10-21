@@ -8,12 +8,12 @@
  * Service in the testApp.
  */
 angular.module('testApp')
-  .service('Instagram', function Instagram($http) {
+  .service('Instagram', function Instagram($http, $q) {
 
   	var accessToken;
   	var clientId = '7e0855d5d0414cf5ab2d7232cf7792ea';
   	var responseType = 'token';
-  	var redirectUri = 'http://localhost:9000/instagram';
+    var redirectUri = 'http://localhost:9000/instagram';
   	var accessTokenUrl = 'https://instagram.com/oauth/authorize/';
 
     // endpoints
@@ -22,30 +22,30 @@ angular.module('testApp')
 
   	this.getUser = function (){
 
+      var deferred = $q.defer();
+
       if (typeof accessToken === 'undefined') {
 
-        return null;
+        deferred.reject(null);
       }
 
-      $http.get(userEndpoint+'self?access_token='+accessToken).
-        success(function(data, status, headers, config) {
+      $http.jsonp(userEndpoint+'self?access_token='+accessToken+'&callback=JSON_CALLBACK').
 
-          console.log('data: ', data);
-          console.log('status: ', status);
-          console.log('headers: ', headers);
-          console.log('config: ', config);
+        success(function(data) {
+
+          deferred.resolve(data.data);
         }).
         error(function() {
 
-          return null;
+          deferred.reject(null);
         });
+
+        return deferred.promise;
   	};
 
   	this.setAccessToken = function (token){
 
   		accessToken = token;
-
-  		console.log('accessToken: ', accessToken);
   	};
 
   	this.getAccessToken = function (){
