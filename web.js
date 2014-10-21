@@ -132,5 +132,5 @@ app.use(redirect_to_https);*/
 
 //app.use(express.logger('dev'));
 app.use(morgan('combined'));
-//app.use(gzippo.staticGzip("" + __dirname + "/dist"));
+app.use(gzippo.staticGzip("" + __dirname + "/app"));
 app.listen(process.env.PORT || 5000);
