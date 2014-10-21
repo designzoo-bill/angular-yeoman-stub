@@ -12,11 +12,11 @@ app.all('/', function(req, res, next) {
     res.sendFile('index.html', {root: './dist/'});
 });
 
-/*app.all('/', function(req, res, next) {
+app.all('/home', function(req, res, next) {
 
     // Just send the index.html for other files to support HTML5Mode
     res.sendFile('index.html', {root: './dist/'});
-});*/
+});
 
 app.get('/styles/:name', function (req, res) {
 
