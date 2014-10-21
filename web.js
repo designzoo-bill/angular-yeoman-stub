@@ -1,7 +1,13 @@
 var gzippo = require('gzippo');
 var express = require('express');
 var morgan = require('morgan');
+var routes = require('./routes');
 var app = express();
+
+// Routes
+
+app.get('/', routes.index);
+//app.get('/partials/:name', routes.partials);
 
 /*app.engine('html', require('html').renderFile);
 app.set('view engine', 'html');*/
