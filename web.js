@@ -9,7 +9,7 @@ var app = express();
 app.all('/home', function(req, res, next) {
 
     // Just send the index.html for other files to support HTML5Mode
-    res.sendFile('/dist/index.html');
+    res.sendFile('index.html', {root: './dist/'});
 });
 
 app.all('/', function(req, res, next) {
