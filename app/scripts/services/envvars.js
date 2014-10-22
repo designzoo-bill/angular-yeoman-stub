@@ -31,6 +31,7 @@ angular.module('testApp')
 	// get the node env from the server defaults to local as we don't have node serve locally
 	$http.get('/node-env').
 		success(function(data) {
+			console.log('data.env', data.env);
 			env = data.env;
 			setVars();
 		}).
@@ -46,6 +47,6 @@ angular.module('testApp')
 
   	this.getApiUrl = function(){
 
-  		return env;
+  		return apiUrl;
   	};
   });
