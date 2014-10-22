@@ -16,6 +16,6 @@ angular.module('testApp').controller('LayoutCtrl', function ($scope, EnvVars) {
     ];
 
     //
-    $scope.env = EnvVars.env;
+    $scope.env = EnvVars.getEnv();
 
   });

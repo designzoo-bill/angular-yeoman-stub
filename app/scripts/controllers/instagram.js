@@ -17,6 +17,9 @@ angular.module('testApp')
 	      'Karma'
 	    ];
 
+	    $scope.user = null;
+	    $scope.instagramPopularMedia = null;
+
 	    // setup the instagram connect url
 	    $scope.instagramUrl = Instagram.getAccessTokenUrl();
 
@@ -37,18 +40,25 @@ angular.module('testApp')
 		    	function(user){
 
 		    		$scope.user = user;
-		    		console.log('$scope.user: ', $scope.user);
-		    	},
-		    	// fail
-		    	function(){
+		    		console.log('$scope.user: ', user);
+		    	}
+	    	);
+	    };
+	   	
+	   	// get the popular instagram media
+	    var getInstgramPopularMedia = function(){
 
-		    		$scope.user = null;
-		    		console.log('$scope.user: ', $scope.user);	    		
+	    	Instagram.getPopularMedia().then(
+
+		    	// success
+		    	function(media){
+
+		    		$scope.instagramPopularMedia = media;
+		    		console.log('$scope.instagramPopularMedia: ', media);
 		    	}
 	    	);
 	    };
 
-	    // update the user every second
-	    //$interval(getInstgramUser, 1000);
 	    getInstgramUser();
+	    getInstgramPopularMedia();
 	});
