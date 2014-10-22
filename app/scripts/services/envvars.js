@@ -8,45 +8,30 @@
  * Service in the testApp.
  */
 angular.module('testApp')
-  .service('EnvVars', function EnvVars($http) {
+  .service('EnvVars', function EnvVars($http, $q) {
 
-  	var env, apiUrl;
+  	this.getEnv = function (){
 
-  	var setVars = function(){
+      var deferred = $q.defer();
 
-		switch(env) {
+      $http.get('/node-env').
+        success(function(data) {
 
-			case 'local':
+        	if (typeof data.env === 'undefined') {
 
-			apiUrl = 'local api url';
-			break;
+        		deferred.resolve('local');
+        	}
+        	else {
 
-			case 'development':
+        		deferred.resolve(data.env);
+        	}
+        }).
+        error(function() {
 
-			apiUrl = 'dev api url';
-			break;
-		}
-  	};
 
-	// get the node env from the server defaults to local as we don't have node serve locally
-	$http.get('/node-env').
-		success(function(data) {
-			console.log('data.env', data.env);
-			env = data.env;
-			setVars();
-		}).
-		error(function() {
-			env = 'local';
-			setVars();
-		});
+          	deferred.resolve('local');
+        });
 
-  	this.getEnv = function(){
-
-  		return env;
-  	};
-
-  	this.getApiUrl = function(){
-
-  		return apiUrl;
+        return deferred.promise;
   	};
   });

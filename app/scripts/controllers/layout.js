@@ -7,15 +7,21 @@
  * # LayoutCtrl
  * Controller of the testApp
  */
-angular.module('testApp').controller('LayoutCtrl', function ($scope, EnvVars) {
+angular.module('testApp')
+	.controller('LayoutCtrl', function ($scope, EnvVars) {
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+	    $scope.awesomeThings = [
+	      'HTML5 Boilerplate',
+	      'AngularJS',
+	      'Karma'
+	    ];
 
-    //
-    $scope.env = EnvVars.getEnv();
+	    EnvVars.getEnv().then(
 
-  });
+			// success
+			function(env){
+
+				$scope.env = env;
+			}
+		);
+  	});
