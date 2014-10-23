@@ -2,15 +2,15 @@
 
 /**
  * @ngdoc filter
- * @name testApp.filter:removeHttp
+ * @name testApp.filter:changetohttps
  * @function
  * @description
- * # removeHttp
+ * # changetohttps
  * Filter in the testApp.
  */
 angular.module('testApp')
-  .filter('removeHttp', function () {
+  .filter('changeToHttps', function () {
     return function (input) {
-      return input.replace('http:', '');
+      return input.replace('http:', 'https:');
     };
   });
