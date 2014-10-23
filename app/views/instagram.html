@@ -14,7 +14,7 @@
 <div ng-show="instagramPopularMedia" class="row">
 	<div ng-repeat="media in instagramPopularMedia" class="col-xs-6 col-md-3">
 		<a href="{{media.link}}" class="thumbnail">
-			<img ng-src="{{media.images.thumbnail.url}}" height="150" width="150">
+			<img ng-src="{{media.images.thumbnail.url | filter:removeHttp}}" height="150" width="150">
 		</a>
 	</div>
 </div>
