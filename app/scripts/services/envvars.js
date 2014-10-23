@@ -65,7 +65,6 @@ angular.module('testApp')
           };
           break;
       }
-
       return envVars;
   	};
   });

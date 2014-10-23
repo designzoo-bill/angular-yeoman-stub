@@ -40,7 +40,6 @@ angular.module('testApp')
 		    	function(user){
 
 		    		$scope.user = user;
-		    		console.log('$scope.user: ', user);
 		    	}
 	    	);
 	    };
@@ -54,7 +53,6 @@ angular.module('testApp')
 		    	function(media){
 
 		    		$scope.instagramPopularMedia = media;
-		    		console.log('$scope.instagramPopularMedia: ', media);
 		    	}
 	    	);
 	    };

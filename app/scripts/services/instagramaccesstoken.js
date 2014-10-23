@@ -13,14 +13,10 @@ angular.module('testApp')
     var STORAGE_ID = 'instagram_access_token';
 
     return {
-
         get: function () {
-
             return localStorage.getItem(STORAGE_ID);
         },
-
         set: function (token) {
-            
             localStorage.setItem(STORAGE_ID, token);
         }
     };

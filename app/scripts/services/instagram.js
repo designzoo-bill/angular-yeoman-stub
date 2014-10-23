@@ -17,10 +17,8 @@ angular.module('testApp')
     var envVars = EnvVars.getVars();
 
     // Instagram Parama
-    //var clientId = '7e0855d5d0414cf5ab2d7232cf7792ea';
   	var clientId = envVars.instagramClientId;
   	var responseType = 'token';
-    //var redirectUri = 'http://localhost:9000/instagram';
     var redirectUri = envVars.instagramRedirectUri;
   	var accessTokenUrl = 'https://instagram.com/oauth/authorize/';
 
@@ -35,8 +33,6 @@ angular.module('testApp')
       var deferred = $q.defer();
 
       var token = me.getAccessToken();
-
-      console.log('token: ', token);
 
       if (token === null) {
 
