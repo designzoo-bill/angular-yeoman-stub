@@ -10,13 +10,7 @@
 angular.module('testApp')
 	.controller('LayoutCtrl', function ($scope, EnvVars) {
 
-	    $scope.awesomeThings = [
-	      'HTML5 Boilerplate',
-	      'AngularJS',
-	      'Karma'
-	    ];
-
-	    EnvVars.getEnv().then(
+	    EnvVars.setEnv().then(
 
 			// success
 			function(env){

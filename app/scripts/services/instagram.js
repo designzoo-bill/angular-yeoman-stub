@@ -8,21 +8,27 @@
  * Service in the testApp.
  */
 angular.module('testApp')
-  .service('Instagram', function Instagram($http, $q, InstagramAccessToken) {
+  .service('Instagram', function Instagram($http, $q, InstagramAccessToken, EnvVars) {
 
     var me = this;
   	var accessToken;
 
+    // getthe env vars
+    var envVars = EnvVars.getVars();
+
     // Instagram Parama
-  	var clientId = '7e0855d5d0414cf5ab2d7232cf7792ea';
+    //var clientId = '7e0855d5d0414cf5ab2d7232cf7792ea';
+  	var clientId = envVars.instagramClientId;
   	var responseType = 'token';
-    var redirectUri = 'http://localhost:9000/instagram';
+    //var redirectUri = 'http://localhost:9000/instagram';
+    var redirectUri = envVars.instagramRedirectUri;
   	var accessTokenUrl = 'https://instagram.com/oauth/authorize/';
 
     // endpoints
     var url = 'https://api.instagram.com/v1';
     var userEndpoint = url+'/users/';
     var popularMediaEndpoint = url+'/media/popular/';
+    var usersFeedEndpoint = url+'/users/self/feed/';
 
     this.getUser = function (){
 
@@ -52,7 +58,7 @@ angular.module('testApp')
         return deferred.promise;
     };
 
-  	this.getPopularMedia = function (){
+    this.getPopularMedia = function (){
 
       var deferred = $q.defer();
 
@@ -64,6 +70,32 @@ angular.module('testApp')
       }
 
       $http.jsonp(popularMediaEndpoint+'?access_token='+token+'&callback=JSON_CALLBACK').
+
+        success(function(data) {
+
+          deferred.resolve(data.data);
+        }).
+
+        error(function() {
+
+          deferred.reject(null);
+        });
+
+        return deferred.promise;
+    };
+
+  	this.getUsersFeed = function (){
+
+      var deferred = $q.defer();
+
+      var token = me.getAccessToken();
+
+      if (token === null) {
+
+        deferred.reject(null);
+      }
+
+      $http.jsonp(usersFeedEndpoint+'?access_token='+token+'&callback=JSON_CALLBACK').
 
         success(function(data) {
 

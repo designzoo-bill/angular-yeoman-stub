@@ -46,9 +46,9 @@ angular.module('testApp')
 	    };
 	   	
 	   	// get the popular instagram media
-	    var getInstgramPopularMedia = function(){
+	    var getInstgramUsersFeed = function(){
 
-	    	Instagram.getPopularMedia().then(
+	    	Instagram.getUsersFeed().then(
 
 		    	// success
 		    	function(media){
@@ -59,6 +59,21 @@ angular.module('testApp')
 	    	);
 	    };
 
+	   	// get the popular instagram media
+	    /*var getInstgramPopularMedia = function(){
+
+	    	Instagram.getPopularMedia().then(
+
+		    	// success
+		    	function(media){
+
+		    		$scope.instagramPopularMedia = media;
+		    		console.log('$scope.instagramPopularMedia: ', media);
+		    	}
+	    	);
+	    };*/
+
 	    getInstgramUser();
-	    getInstgramPopularMedia();
+	    getInstgramUsersFeed();
+	    //getInstgramPopularMedia();
 	});
