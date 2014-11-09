@@ -1,7 +1,7 @@
 <p ng-show="user == null">Please <a ng-href="{{instagramUrl}}">connect</a> with Instagram</p>
 <div ng-show="user" class="row">
 	<div class="col-md-2 pull-right">
-		<a ng-href="http://instagram.com/{{user.username}}"><img ng-src="{{user.profile_picture | changeToHttps}}" height="60" width="60" class="img-circle center-block"></a>
+		<a ng-href="http://instagram.com/{{user.username}}"><img ng-src="{{user.profile_picture}}" height="60" width="60" class="img-circle center-block"></a>
 	</div>
 	<div class="col-md-10">
 		<span ng-show="user.full_name">{{user.full_name}}<br></span>

@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.sortable'
+    'ui.sortable',
+    'angularUtils.directives.dirPagination'
   ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
