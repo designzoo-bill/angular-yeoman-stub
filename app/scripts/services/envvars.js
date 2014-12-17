@@ -61,7 +61,7 @@ angular.module('testApp')
 
             env: env,
             instagramClientId: '9820dd14bfaf478ea132acd571d17f1a',
-            instagramRedirectUri: 'https://ancient-retreat-8481.herokuapp.com/instagram'
+            instagramRedirectUri: 'https://designzoo-angular.herokuapp.com/instagram'
           };
           break;
       }
