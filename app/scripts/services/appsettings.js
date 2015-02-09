@@ -7,10 +7,9 @@
  * # AppSettings
  * Constant in the testApp.
  */
-angular.module('testApp')
-	.constant('AppSettings', 
+angular.module('testApp').constant('AppSettings',
 
-		{
-			appName: 'yeoman/angular'
-		}
-  	);
+  {
+    appName: 'angular/zf2'
+  }
+);
